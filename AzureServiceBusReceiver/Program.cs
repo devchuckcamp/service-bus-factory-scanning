@@ -10,8 +10,8 @@ namespace AzureServiceBusReceiver;
 class Program
 {   
 
-    const string connectionString = "[SendGrid_API_KEY]";
-    const string queueName = "pickupqueue";
+    const string connectionString = "[ReceiverAzureServiceBus]";
+    const string queueName = "[ServiceBus_QueueName]";
     static IQueueClient? queueClient;
 
     static async Task Main(string[] args)
@@ -56,7 +56,7 @@ class Program
         try
         {
             //Your SendGrid API
-            var client = new SendGridClient("");
+            var client = new SendGridClient("[SendGrid_API_KEY]");
 
             var from = new EmailAddress("[Sender_Email]", "[Sender_Name]");
             var to = new EmailAddress("[Receiver_Email]", "[Receiver_Name]");

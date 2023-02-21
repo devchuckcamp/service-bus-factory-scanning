@@ -16,7 +16,7 @@ public class QueueService:IQueueService
 
     public async Task SendMessageAsync<T>(T serviceBusMessage, string queueName)
     {
-        var queueClient = new QueueClient(_config.GetConnectionString("AzureServiceBus"), queueName);
+        var queueClient = new QueueClient(_config.GetConnectionString("SenderAzureServiceBus"), queueName);
         string messageBody = JsonSerializer.Serialize(serviceBusMessage);
         var message = new Message(Encoding.UTF8.GetBytes(messageBody));
 

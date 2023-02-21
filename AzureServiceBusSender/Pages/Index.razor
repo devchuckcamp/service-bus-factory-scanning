@@ -25,7 +25,7 @@ Scan Product
 
     private async Task PublishMessage()
     {
-        await queque.SendMessageAsync(item, "pickupqueue");
+        await queque.SendMessageAsync(item, "[ServiceBus_QueueName]");
         item = new PickItem();
     }
 }
