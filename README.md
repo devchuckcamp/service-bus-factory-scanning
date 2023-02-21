@@ -28,7 +28,7 @@
 ### Create Service Bus Queue- https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-portal
 ### Note: Connection Strings of Queues Policies should be dedicated respectively for Sender and Listeners.
 ### Create two separate Policy, one for AzureServiceBusSender with Send only, and Listen only AzureServiceBusReceiver.
-### Variables
+### Variables - do have these in a secure place key vault, env or user secret manager.
 [SenderAzureServiceBus] - Connection Strings of sender
 [ReceiverAzureServiceBus] - Connection Strings of receiver
 [SericeBus_QueueName] - Name of queue create Service Bus
