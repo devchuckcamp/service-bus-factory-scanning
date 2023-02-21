@@ -1,0 +1,31 @@
+﻿@page "/"
+@using Common.Models
+@using AzureServiceBusSender.Repository
+@using AzureServiceBusSender.Services
+@inject IQueueService queque
+
+<PageTitle>Scan Product</PageTitle>
+Scan Product
+<EditForm Model="@item" OnValidSubmit="@PublishMessage">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="form-group">
+        <label for="itemsku">SKU</label>
+        <InputText id="itemsku" class="form-control" @bind-Value="@item.ItemSku"/>
+    </div>
+    <div class="form-group">
+        <label for="orderid">Order ID</label>
+        <InputNumber id="orderid" class="form-control" @bind-Value="@item.OrderId" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</EditForm>
+
+@code{
+    private PickItem item = new PickItem();
+
+    private async Task PublishMessage()
+    {
+        await queque.SendMessageAsync(item, "pickupqueue");
+        item = new PickItem();
+    }
+}
