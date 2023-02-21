@@ -1,4 +1,4 @@
 # AzureServiceBusSender
 
-![Alt text](/README/PostSubmission3.png?raw=true "Result")
+![Alt text](/README/PostSubmission.png?raw=true "Result")
 
